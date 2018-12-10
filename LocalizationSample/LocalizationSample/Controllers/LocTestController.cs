@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -12,9 +13,9 @@ namespace LocalizationSample.Controllers
     [ApiController]
     public class LocTestController : ControllerBase
     {
-        private readonly IStringLocalizer<LocTestController> _localizer;
+        private readonly IStringLocalizer<SharedResources> _localizer;
 
-        public LocTestController(IStringLocalizer<LocTestController> localizer)
+        public LocTestController(IStringLocalizer<SharedResources> localizer)
         {
             _localizer = localizer;
         }
@@ -22,7 +23,9 @@ namespace LocalizationSample.Controllers
         [HttpGet]
         public string Get()
         {
-            return _localizer["MyString01Res"];
+            return $"Current UI: {CultureInfo.CurrentUICulture}" +
+                $", Current Culture: {CultureInfo.CurrentCulture}" +
+                $", Loc value: {_localizer["MyString01Res"]}";
         }
 
     }

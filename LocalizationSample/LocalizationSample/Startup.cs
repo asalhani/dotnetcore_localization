@@ -45,10 +45,11 @@ namespace LocalizationSample
 
             IList<CultureInfo> supportedCultures = new List<CultureInfo>
             {
-                new CultureInfo("en-US"),
-                new CultureInfo("ar-SA"),
+                new CultureInfo("en"),
+                new CultureInfo("ar"),
             };
 
+            
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
                 //The middleware adds 3 providers for the request culture by default:
@@ -57,7 +58,7 @@ namespace LocalizationSample
                 //    AcceptLanguageHeaderRequestCultureProvider: Gets the culture from the Accept-Language request header
 
                 // This is the fallback that is used if we can't figure out which one should be used
-                DefaultRequestCulture = new RequestCulture("ar-SA"),
+                DefaultRequestCulture = new RequestCulture("en"),
 
                 // The cultures we wish to support
                 SupportedCultures = supportedCultures, // used for number and date formats etc

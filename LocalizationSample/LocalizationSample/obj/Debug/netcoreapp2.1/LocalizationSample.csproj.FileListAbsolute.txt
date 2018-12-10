@@ -16,3 +16,10 @@ C:\ASALHANI\ELM_PROJECTS\POCs\dotnetcore_localization\LocalizationSample\Localiz
 C:\ASALHANI\ELM_PROJECTS\POCs\dotnetcore_localization\LocalizationSample\LocalizationSample\obj\Debug\netcoreapp2.1\LocalizationSample.csproj.GenerateResource.cache
 C:\ASALHANI\ELM_PROJECTS\POCs\dotnetcore_localization\LocalizationSample\LocalizationSample\obj\Debug\netcoreapp2.1\ar-SA\LocalizationSample.resources.dll
 C:\ASALHANI\ELM_PROJECTS\POCs\dotnetcore_localization\LocalizationSample\LocalizationSample\obj\Debug\netcoreapp2.1\LocalizationSample.Resources.Controllers.LocTestController.resources
+C:\ASALHANI\ELM_PROJECTS\POCs\dotnetcore_localization\LocalizationSample\LocalizationSample\obj\Debug\netcoreapp2.1\LocalizationSample.csprojAssemblyReference.cache
+C:\ASALHANI\ELM_PROJECTS\POCs\dotnetcore_localization\LocalizationSample\LocalizationSample\bin\Debug\netcoreapp2.1\ar\LocalizationSample.resources.dll
+C:\ASALHANI\ELM_PROJECTS\POCs\dotnetcore_localization\LocalizationSample\LocalizationSample\bin\Debug\netcoreapp2.1\en\LocalizationSample.resources.dll
+C:\ASALHANI\ELM_PROJECTS\POCs\dotnetcore_localization\LocalizationSample\LocalizationSample\obj\Debug\netcoreapp2.1\ar\LocalizationSample.resources.dll
+C:\ASALHANI\ELM_PROJECTS\POCs\dotnetcore_localization\LocalizationSample\LocalizationSample\obj\Debug\netcoreapp2.1\en\LocalizationSample.resources.dll
+C:\ASALHANI\ELM_PROJECTS\POCs\dotnetcore_localization\LocalizationSample\LocalizationSample\obj\Debug\netcoreapp2.1\LocalizationSample.Resources.SharedResources.ar.resources
+C:\ASALHANI\ELM_PROJECTS\POCs\dotnetcore_localization\LocalizationSample\LocalizationSample\obj\Debug\netcoreapp2.1\LocalizationSample.Resources.SharedResources.en.resources
