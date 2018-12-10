@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Localization.Routing;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -49,23 +51,36 @@ namespace LocalizationSample
                 new CultureInfo("ar"),
             };
 
-            
-            app.UseRequestLocalization(new RequestLocalizationOptions
+            var localizationOptions = new RequestLocalizationOptions
             {
-                //The middleware adds 3 providers for the request culture by default:
-                //    QueryStringRequestCultureProvider: Gets the culture from query string values
-                //    CookieRequestCultureProvider: Gets the culture from a cookie
-                //    AcceptLanguageHeaderRequestCultureProvider: Gets the culture from the Accept-Language request header
-
                 // This is the fallback that is used if we can't figure out which one should be used
                 DefaultRequestCulture = new RequestCulture("en"),
-
-                // The cultures we wish to support
                 SupportedCultures = supportedCultures, // used for number and date formats etc
                 SupportedUICultures = supportedCultures // used for looking up translations from resource files.
-            });
+            };
 
-            // below will add support to lang in URL (/ar-SA/..)
+            var requestProvider = new RouteDataRequestCultureProvider();
+            localizationOptions.RequestCultureProviders.Insert(0, requestProvider);
+
+            app.UseRouter(routes =>
+            {
+                // below will add support to lang in URL (/ar-SA/..)
+                routes.MapMiddlewareRoute("{culture=en-US}/{*mvcRoute}", subApp =>
+                {
+                    //The middleware adds 3 providers for the request culture by default:
+                    //    QueryStringRequestCultureProvider: Gets the culture from query string values
+                    //    CookieRequestCultureProvider: Gets the culture from a cookie
+                    //    AcceptLanguageHeaderRequestCultureProvider: Gets the culture from the Accept-Language request header
+                    subApp.UseRequestLocalization(localizationOptions);
+
+                    subApp.UseMvc(mvcRoutes =>
+                    {
+                        mvcRoutes.MapRoute(
+                            name: "default",
+                            template: "{culture=en-US}/{controller=Home}/{action=Index}/{id?}");
+                    });
+                });
+            });
 
             app.UseMvc();
         }

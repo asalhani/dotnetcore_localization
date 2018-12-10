@@ -9,7 +9,7 @@ using Microsoft.Extensions.Localization;
 
 namespace LocalizationSample.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("{culture}/api/[controller]")]
     [ApiController]
     public class LocTestController : ControllerBase
     {
